@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+
+import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
+  const [first, setfirst] = useState('');
+
+  useEffect(() => {
+    console.log("Rendered");
+  }, [first]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={(e) => setfirst(e.target.innerText)}>First</button>
+      <button onClick={(e) => setfirst(e.target.innerText)}>Second</button>
+      <button onClick={(e) => setfirst(e.target.innerText)}>Third</button>
+      <h1>{first}</h1>
     </div>
   );
 }
